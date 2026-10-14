@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spider-Verse Business Card Resume | Full-Stack & UI/UX</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Linked External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Comic Halftone & Web-Shooter Canvas -->
+  <div class="halftone-bg"></div>
+  <canvas id="webCanvas"></canvas>
+
+  <!-- Action Toolbar -->
+  <div class="controls-bar">
+    <button class="btn" id="flipBtn">
+      🕸️ FLIP BUSINESS CARD (FRONT / BACK)
+    </button>
+    <button class="btn secondary" id="editBtn">
+      ✏️ CUSTOMIZE NAME / CONTACT
+    </button>
+    <button class="btn" id="downloadBtn">
+      ⬇️ DOWNLOAD STANDALONE HTML
+    </button>
+    <button class="btn secondary" id="printBtn">
+      🖨️ SAVE AS PDF
+    </button>
+  </div>
+
+  <!-- 3D Business Card Scene -->
+  <div class="scene" id="cardScene">
+    <div class="card" id="spideyCard">
+
+      <!-- ================= FRONT SIDE ================= -->
+      <div class="card-face card-front">
+        <!-- Corner Web Decoration -->
+        <svg class="corner-web" viewBox="0 0 200 200">
+          <g stroke="#ffffff" stroke-width="1.5" fill="none">
+            <line x1="0" y1="0" x2="200" y2="30" />
+            <line x1="0" y1="0" x2="190" y2="90" />
+            <line x1="0" y1="0" x2="150" y2="150" />
+            <line x1="0" y1="0" x2="90" y2="190" />
+            <line x1="0" y1="0" x2="30" y2="200" />
+            <path d="M 40 6 Q 35 35 6 40" />
+            <path d="M 80 12 Q 68 68 12 80" />
+            <path d="M 125 20 Q 100 100 20 125" />
+            <path d="M 170 26 Q 135 135 26 170" />
+          </g>
+        </svg>
+
+        <!-- Animated Swinging Spider-Man -->
+        <div class="spidey-swing-container">
+          <div class="web-thread"></div>
+          <!-- Spider-Sense Tingling Waves -->
+          <svg class="spidey-sense" viewBox="0 0 100 50">
+            <path d="M5 25 L15 15 L25 30 L35 10 L45 25" stroke="#ffe600" stroke-width="2.5" fill="none"/>
+            <path d="M95 25 L85 15 L75 30 L65 10 L55 25" stroke="#00f0ff" stroke-width="2.5" fill="none"/>
+          </svg>
+          <!-- Hanging Upside-Down Spider-Man Mask SVG -->
+          <svg class="spidey-hang-svg" viewBox="0 0 100 100">
+            <g transform="rotate(180 50 50)">
+              <ellipse cx="50" cy="52" rx="34" ry="42" fill="#e62429" stroke="#111" stroke-width="3"/>
+              <!-- Mask Web Lines -->
+              <line x1="50" y1="10" x2="50" y2="94" stroke="#111" stroke-width="1.5"/>
+              <line x1="16" y1="52" x2="84" y2="52" stroke="#111" stroke-width="1.5"/>
+              <line x1="25" y1="22" x2="75" y2="82" stroke="#111" stroke-width="1.5"/>
+              <line x1="75" y1="22" x2="25" y2="82" stroke="#111" stroke-width="1.5"/>
+              <ellipse cx="50" cy="52" rx="18" ry="22" fill="none" stroke="#111" stroke-width="1.5"/>
+              <!-- Iconic Spidey Eyes -->
+              <path d="M 24 44 Q 36 28 46 48 Q 34 56 24 44 Z" fill="#fff" stroke="#111" stroke-width="3.5"/>
+              <path d="M 76 44 Q 64 28 54 48 Q 66 56 76 44 Z" fill="#fff" stroke="#111" stroke-width="3.5"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Header: Spider Emblem + Name & Title -->
+        <div class="front-header">
+          <div class="avatar-badge" title="Spider-Sense Active">
+            <svg viewBox="0 0 64 64">
+              <path d="M32 18 L37 26 L35 38 L32 48 L29 38 L27 26 Z" />
+              <circle cx="32" cy="14" r="4.5" />
+              <!-- Left Legs -->
+              <path d="M29 22 L14 8 L8 18" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M28 26 L10 22 L6 32" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M28 31 L10 38 L8 50" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M29 36 L16 52 L14 60" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <!-- Right Legs -->
+              <path d="M35 22 L50 8 L56 18" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M36 26 L54 22 L58 32" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M36 31 L54 38 L56 50" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+              <path d="M35 36 L48 52 L50 60" stroke="#0a0b10" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="identity">
+            <h1 id="cardName">YOUR NAME</h1>
+            <span class="role-tag">Full-Stack Developer & UI/UX Designer</span>
+            <div class="location-pill">
+              <span>📍 Vadodara, Gujarat</span> • <span id="cardStatus">Open to Internships & Freelance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Pitch -->
+        <div class="front-summary">
+          Building fast, interactive web interfaces and striking visual systems with the precision of a web-slinger. Experienced in <strong>React.js</strong>, <strong>JavaScript (ES6+)</strong>, modern <strong>UI/UX design</strong>, and seamless deployments via <strong>GitHub & Vercel</strong>.
+        </div>
+
+        <!-- Core Tech Stack -->
+        <div class="skills-row">
+          <span class="skill-chip">React.js</span>
+          <span class="skill-chip">JavaScript (ES6+)</span>
+          <span class="skill-chip">HTML5 / CSS3</span>
+          <span class="skill-chip">UI/UX & Graphic Design</span>
+          <span class="skill-chip">Git & Vercel</span>
+          <span class="skill-chip">CS & Statistics</span>
+        </div>
+
+        <!-- Footer -->
+        <div class="front-footer">
+          <div id="cardContact">
+            📧 your.email@example.com &nbsp;|&nbsp; 🔗 github.com/yourusername
+          </div>
+          <div class="flip-hint">CLICK CARD TO FLIP ➔</div>
+        </div>
+      </div>
+
+      <!-- ================= BACK SIDE (RESUME) ================= -->
+      <div class="card-face card-back">
+        <!-- Left Column: Experience & Key Projects -->
+        <div>
+          <div class="section-title">⚡ EXPERIENCE & PROJECTS</div>
+
+          <div class="resume-item">
+            <h4>
+              <span>UI/UX & Frontend Contributor</span>
+              <span class="year-badge">2026</span>
+            </h4>
+            <div class="sub">Mamo Technolabs Pvt Ltd</div>
+            <ul>
+              <li>Designed branded UI/UX templates, social layouts, and promotional digital assets.</li>
+              <li>Crafted responsive front-end components aligned with modern visual standards.</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <h4><span>Interactive Web & React Projects</span></h4>
+            <div class="sub">Full-Stack & Front-End Portfolio</div>
+            <ul>
+              <li><strong>Apple Accessories Showcase:</strong> Interactive JS/HTML product showcase for MagSafe, USB-C, and Beats gear.</li>
+              <li><strong>EdTech Platform UI Suite:</strong> Built responsive course cards, trust stats, and partner grids.</li>
+              <li><strong>React News & Web Apps:</strong> Deployed dynamic React repositories via GitHub and Vercel.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Power Stats & Education -->
+        <div>
+          <div class="section-title">🕸️ SPIDER-STATS (SKILLS)</div>
+
+          <div class="stat-bar">
+            <div class="stat-label"><span>React.js & JavaScript</span><span>92%</span></div>
+            <div class="stat-track"><div class="stat-fill" style="width: 92%;"></div></div>
+          </div>
+
+          <div class="stat-bar">
+            <div class="stat-label"><span>HTML5, CSS3 & Responsive UI</span><span>95%</span></div>
+            <div class="stat-track"><div class="stat-fill" style="width: 95%;"></div></div>
+          </div>
+
+          <div class="stat-bar">
+            <div class="stat-label"><span>UI/UX & Social Asset Design</span><span>90%</span></div>
+            <div class="stat-track"><div class="stat-fill" style="width: 90%;"></div></div>
+          </div>
+
+          <div class="stat-bar">
+            <div class="stat-label"><span>Git, GitHub & Vercel CI/CD</span><span>88%</span></div>
+            <div class="stat-track"><div class="stat-fill" style="width: 88%;"></div></div>
+          </div>
+
+          <div class="section-title edu-heading">🎓 EDUCATION</div>
+          <div class="edu-box">
+            <h4 class="edu-title">B.Sc. in Computer Science & Statistics</h4>
+            <div class="sub edu-sub">Expected Graduation: 2028</div>
+            <p class="edu-desc">
+              Focus: Full-Stack Web Development, Data & Statistical Analysis, UI Engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="helper-caption">
+    💡 <strong>Tip:</strong> Move your cursor to shoot interactive web-lines • Click the card to flip between Front & Resume Back • Use the top buttons to customize or download.
+  </p>
+
+  <!-- Linked External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
